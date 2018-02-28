@@ -639,7 +639,7 @@ xsd_time_string(term_t term, term_t type, term_t string)
       at = URL_date;
       if ( v[0] < 0 )
       { sign = "-";
-	v[0] = -v[0];
+	v[0] = -v[0]-1;
       }
       sprintf(buf, "%s%04d-%02d-%02d", sign, v[0],v[1],v[2]);
     } else if ( PL_is_functor(term, FUNCTOR_date_time6) )
@@ -654,7 +654,7 @@ xsd_time_string(term_t term, term_t type, term_t string)
       at = URL_dateTime;
       if ( v[0] < 0 )
       { sign = "-";
-	v[0] = -v[0];
+	v[0] = -v[0]-1;
       }
       sprintf(buf, "%s%04d-%02d-%02dT%02d:%02d:%s",
 	      sign, v[0], v[1], v[2], t.hour, t.minute, time_sec_chars(&t, b2));
@@ -672,7 +672,7 @@ xsd_time_string(term_t term, term_t type, term_t string)
       at = URL_dateTime;
       if ( v[0] < 0 )
       { sign = "-";
-	v[0] = -v[0];
+	v[0] = -v[0]-1;
       }
       sprintf(buf, "%s%04d-%02d-%02dT%02d:%02d:%s",
 	      sign, v[0], v[1], v[2], t.hour, t.minute, time_sec_chars(&t, b2));
@@ -708,7 +708,7 @@ xsd_time_string(term_t term, term_t type, term_t string)
 	return FALSE;
       if ( v[0] < 0 )
       { sign = "-";
-	v[0] = -v[0];
+	v[0] = -v[0]-1;
       }
       at = URL_gYearMonth;
       sprintf(buf, "%s%04d-%02d", sign, v[0], v[1]);
