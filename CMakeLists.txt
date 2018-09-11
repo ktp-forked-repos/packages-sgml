@@ -11,6 +11,10 @@ check_type_size("long" SIZEOF_LONG)
 
 configure_file(config.h.cmake config.h)
 
+set(DTD_FILES HTML4.dcl HTML4.dtd HTML4.soc HTML5.dtd HTMLlat1.ent
+    HTMLspec.ent HTMLsym.ent)
+prepend(DTD_FILES DTD/ ${DTD_FILES})
+
 swipl_plugin(
     sgml2pl
     C_SOURCES parser.c util.c charmap.c catalog.c model.c xmlns.c utf8.c
@@ -18,5 +22,9 @@ swipl_plugin(
     C_LIBS ${LIBEDIT_LIBRARIES}
     PL_LIBS sgml.pl xsdp_types.pl iso_639.pl sgml_write.pl xpath.pl
 	    pwp.pl c14n2.pl)
+swipl_plugin(
+    sgml_dtd
+    PL_LIB_SUBDIR DTD
+    PL_LIBS ${DTD_FILES})
 
 test_libs(sgml sgml_write xsd)
