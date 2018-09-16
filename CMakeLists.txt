@@ -28,3 +28,9 @@ swipl_plugin(
     PL_LIBS ${DTD_FILES})
 
 test_libs(sgml sgml_write xsd)
+
+pkg_doc(sgml
+	SECTION
+	    xpath.pl pwp.pl
+	SUBSECTION
+	    c14n2.pl)
