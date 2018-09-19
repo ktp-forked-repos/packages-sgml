@@ -19,7 +19,6 @@ swipl_plugin(
     sgml2pl
     C_SOURCES parser.c util.c charmap.c catalog.c model.c xmlns.c utf8.c
 	      xml_unicode.c quote.c sgml2pl.c xsd.c error.c
-    C_LIBS ${LIBEDIT_LIBRARIES}
     PL_LIBS sgml.pl xsdp_types.pl iso_639.pl sgml_write.pl xpath.pl
 	    pwp.pl c14n2.pl)
 swipl_plugin(
