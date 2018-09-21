@@ -4,7 +4,7 @@ project(swipl-sgml)
 include("../cmake/PrologPackage.cmake")
 include(CheckTypeSize)
 
-AC_CHECK_HEADERS(malloc.h unistd.h sys/time.h fcntl.h floatingpoint.h)
+AC_CHECK_HEADERS(malloc.h unistd.h sys/time.h fcntl.h floatingpoint.h io.h)
 AC_CHECK_FUNCS(snprintf strerror strtoll)
 
 check_type_size("long" SIZEOF_LONG)
